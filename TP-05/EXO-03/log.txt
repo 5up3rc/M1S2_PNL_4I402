@@ -1,0 +1,22 @@
+[root@vm-nmv ~]# insmod hanging.ko 
+[  829.126615] Hanging module loaded
+[root@vm-nmv ~]# [  870.470632] INFO: task my_hanging_fn:298 blocked for more than 30 seconds.
+[  870.471021]       Tainted: G           O    4.2.3 #2
+[  870.471260] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  870.471631] my_hanging_fn   D 0000000000000000     0   298      2 0x00000000
+[  870.471999]  ffff88007ba43dc8 0000000000000046 ffff88007cbb2400 ffff88007cbb6c00
+[  870.472371]  0000000000000282 ffff88007ba44000 000000010000e620 ffff88007ba43e18
+[  870.472778]  ffff88007fc0e780 0000000000000000 ffff88007ba43de8 ffffffff81aa5d77
+[  870.473145] Call Trace:
+[  870.473322]  [<ffffffff81aa5d77>] schedule+0x37/0x80
+[  870.473574]  [<ffffffff81aa9284>] schedule_timeout+0x114/0x210
+[  870.473876]  [<ffffffff81188ed0>] ? trace_event_raw_event_tick_stop+0xd0/0xd0
+[  870.474223]  [<ffffffffa000c000>] ? 0xffffffffa000c000
+[  870.474490]  [<ffffffffa000c037>] my_hanging_fn+0x37/0x50 [hanging]
+[  870.474796]  [<ffffffff811451ab>] kthread+0xdb/0x100
+[  870.475046]  [<ffffffff811450d0>] ? kthread_create_on_node+0x180/0x180
+[  870.475362]  [<ffffffff81aaa51f>] ret_from_fork+0x3f/0x70
+[  870.475628]  [<ffffffff811450d0>] ? kthread_create_on_node+0x180/0x180
+[  889.120958] done waiting
+
+
