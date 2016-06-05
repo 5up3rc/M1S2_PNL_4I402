@@ -1,0 +1,27 @@
+diff -Nur linux-4.2.3-orig/fs/dcache.c linux-4.2.3/fs/dcache.c
+--- linux-4.2.3-orig/fs/dcache.c	2015-10-03 13:52:18.000000000 +0200
++++ linux-4.2.3/fs/dcache.c	2015-12-08 04:27:11.330743015 +0100
+@@ -102,7 +102,8 @@
+ static unsigned int d_hash_mask __read_mostly;
+ static unsigned int d_hash_shift __read_mostly;
+ 
+-static struct hlist_bl_head *dentry_hashtable __read_mostly;
++struct hlist_bl_head *dentry_hashtable __read_mostly;
++EXPORT_SYMBOL(dentry_hashtable);
+ 
+ static inline struct hlist_bl_head *d_hash(const struct dentry *parent,
+ 					unsigned int hash)
+diff -Nur linux-4.2.3-orig/include/linux/dcache.h linux-4.2.3/include/linux/dcache.h
+--- linux-4.2.3-orig/include/linux/dcache.h	2015-10-03 13:52:18.000000000 +0200
++++ linux-4.2.3/include/linux/dcache.h	2015-12-08 04:27:32.144046561 +0100
+@@ -584,4 +584,10 @@
+ 	return upper;
+ }
+ 
++/**
++ * Export pour le TP 7
++ */
++
++extern struct hlist_bl_head *dentry_hashtable __read_mostly;
++
+ #endif	/* __LINUX_DCACHE_H */
