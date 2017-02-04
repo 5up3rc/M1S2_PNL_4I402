@@ -6,8 +6,8 @@
 /***************                                                ***************/
 /******************************************************************************/
 
-Auteur : Quentin Marciset - 2800441
-2ème membre du binôme : Ugo Schulze
+Auteur : ######
+2ème membre du binôme : ######
 
 
 Fichiers fournis :
